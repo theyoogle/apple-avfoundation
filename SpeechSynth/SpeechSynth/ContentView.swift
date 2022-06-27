@@ -19,7 +19,9 @@ struct ContentView: View {
                 .padding()
                 .border(Color.blue, width: 1.0)
         }
+        
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

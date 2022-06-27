@@ -11,14 +11,12 @@ struct PlayerView: View {
     
     @ObservedObject var conductor = AudioPlayerConductor()
     
-    @State var volume: Float = 1.0
-    
     var body: some View {
         
         VStack {
             HStack {
                 Button {
-                    conductor.player.play()
+                    conductor.play()
                 } label: {
                     Image(systemName: "play")
                         .padding()
@@ -28,18 +26,8 @@ struct PlayerView: View {
                 }
                 
                 Button {
-                    conductor.player.pause()
-                } label: {
-                    Image(systemName: "pause")
-                        .padding()
-                        .background(Color.yellow)
-                        .foregroundColor(.white)
-                        .clipShape(Circle())
-                }
-                
-                Button {
                     // Stop will undo the setup performed by prepareToPlay()
-                    conductor.player.stop()
+                    conductor.stop()
                 } label: {
                     Image(systemName: "stop")
                         .padding()
@@ -47,25 +35,38 @@ struct PlayerView: View {
                         .foregroundColor(.white)
                         .clipShape(Circle())
                 }
-            }
-            
-            HStack {
-                Text("Volume")
-                Slider(value: $conductor.data.volume)
-            }
-            .padding(.horizontal)
-            
-            HStack {
-                Text("Pan      ")
-                Slider(value: $conductor.data.pan, in: -1...1, step: 0.01)
+                
+                HStack {
+                    Text("Rate")
+                    Slider(value: $conductor.playbackRate, in: 0.5...2.0, step: 0.01)
+                }
             }
             .padding(.horizontal)
             
             HStack {
-                Text("Rate     ")
-                Slider(value: $conductor.data.playbackRate, in: 0.5...2.0, step: 0.01)
+                ForEach(conductor.players.indices, id: \.self) { i in
+                    VStack {
+                        VStack {
+                            Image(conductor.playerImages[i])
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                            Text(conductor.playerImages[i])
+                        }
+
+                        
+                        VStack {
+                            Slider(value: $conductor.players[i].volume)
+                            Text("Volume")
+                        }
+            
+                        VStack {
+                            Slider(value: $conductor.players[i].pan, in: -1...1, step: 0.01)
+                            Text("Pan")
+                        }
+                    }
+                }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
 
         }
 

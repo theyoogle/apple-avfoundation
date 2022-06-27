@@ -13,33 +13,23 @@ class SpeechConductor: ObservableObject {
     private var voices: [AVSpeechSynthesisVoice]
     
     private let speechStrings = [
-        "Mere paas maa hai.",
-        "Pushpa, I hate tears…",
-        "Kitne aadmi the!",
-        "Rishtey mein toh hum tumhare baap lagte hai, naam hai Shahenshaah!",
-        "Babumoshai, zindagi badi honi chahiye, lambi nahi.",
-        "Dosti ka ek usool hai madam – no sorry, no thank you.",
-        "Kutte kaminey main tera khoon pee jaunga.",
-        "Mogambo khush hua!",
-        "Hum jahan khade hote hain line yahi se shuru hoti hai.",
-        "Bade bade deshon mein aisi choti-choti baatein hoti rehti hai, Senorita.",
-        "Haar kar jeetne wale ko baazigar kehte hai.",
-        "Mere Karan Arjun aayenge.",
-        "Agar maa ka doodh piya hai toh samne aa!",
-        "Crime Master Gogo naam hai mera, aankhen nikal ke gotiyan khelta hun main.",
-        "Tareekh pe tareekh, tareekh pe tareekh, tareekh pe tareekh milti gayi My Lord, par insaaf nahi mila!",
-        "Picture abhi baaki hai mere dost!"
+        "Hey Harry, how have you been? Long time no see!",
+        "Hey! What a surprise! Yes, you are right, we haven’t seen each other in a long time. How have you been?",
+        "There is an important campaign next week which is keeping me busy otherwise rest is going good in my life. How about you?",
+        "Oh! I just finished a meeting with a very important client of mine and now I finally have some free time. I feel relieved that I’m done with it.",
+        "Good for you then. Hey! Let’s make a plan and catch up with each other after next week. What do you say?",
+        "Sure, why not? Give me a call when you are done with your project.",
+        "Sure, then. Bye, take care.",
+        "Bye buddy."
     ]
     
     init() {
         synth = AVSpeechSynthesizer()
-        
         voices = [
             AVSpeechSynthesisVoice(language: "en-US")!,
             AVSpeechSynthesisVoice(language: "en-GB")!
         ]
-        
-        print(AVSpeechSynthesisVoice.speechVoices())
+        // print(AVSpeechSynthesisVoice.speechVoices())
     }
     
     func beginConversation() {
@@ -53,8 +43,4 @@ class SpeechConductor: ObservableObject {
         }
     }
     
-    func code() {
-        let utterance = AVSpeechUtterance(string: "I am a robot.")
-        synth.speak(utterance)
-    }
 }
