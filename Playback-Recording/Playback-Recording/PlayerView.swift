@@ -16,29 +16,23 @@ struct PlayerView: View {
         VStack {
             HStack {
                 Button {
-                    conductor.play()
+                    if conductor.playing {
+                        // Stop will undo the setup performed by prepareToPlay()
+                        conductor.stop()
+                    } else {
+                        conductor.play()
+                    }
                 } label: {
-                    Image(systemName: "play")
+                    Image(systemName: conductor.playing ? "stop" : "play")
                         .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .clipShape(Circle())
-                }
-                
-                Button {
-                    // Stop will undo the setup performed by prepareToPlay()
-                    conductor.stop()
-                } label: {
-                    Image(systemName: "stop")
-                        .padding()
-                        .background(Color.red)
+                        .background(conductor.playing ? Color.red : Color.green)
                         .foregroundColor(.white)
                         .clipShape(Circle())
                 }
                 
                 HStack {
                     Text("Rate")
-                    Slider(value: $conductor.playbackRate, in: 0.5...2.0, step: 0.01)
+                    Slider(value: $conductor.playbackRate, in: 0.5...1.5, step: 0.01)
                 }
             }
             .padding(.horizontal)

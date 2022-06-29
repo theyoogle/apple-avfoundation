@@ -20,6 +20,11 @@ struct Playback_RecordingApp: App {
         } catch let err {
             print("AVAudioSession configuration error: \(err.localizedDescription)")
         }
+        
+        // Upper will not stop audio on silent switch
+        
+        // For background audio, add entry in info.plist
+        // Required background modes > [0] > App plays audio or streams audio/video using AirPlay
     }
     
     var body: some Scene {

@@ -27,6 +27,7 @@
 		5A69D64228696AFB006037E7 /* drums.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = drums.caf; sourceTree = "<group>"; };
 		5A69D64328696AFB006037E7 /* bass.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bass.caf; sourceTree = "<group>"; };
 		5A69D64428696AFB006037E7 /* guitar.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = guitar.caf; sourceTree = "<group>"; };
+		5AE563E62869CA280012E56F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +60,7 @@
 		5A69D62F28696A36006037E7 /* Playback-Recording */ = {
 			isa = PBXGroup;
 			children = (
+				5AE563E62869CA280012E56F /* Info.plist */,
 				5A69D64128696AD5006037E7 /* Files */,
 				5A69D63E28696A80006037E7 /* Models */,
 				5A69D63228696A36006037E7 /* PlayerView.swift */,
@@ -302,6 +304,7 @@
 				DEVELOPMENT_TEAM = 8Z9CP2T4M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Playback-Recording/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -331,6 +334,7 @@
 				DEVELOPMENT_TEAM = 8Z9CP2T4M4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Playback-Recording/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
